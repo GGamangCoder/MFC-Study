@@ -1,6 +1,6 @@
-## MFC 기초 예제
+## MFC 기초
 
-### 계산기
+### 계산기(예제)
 - 다이얼로그 생성하기
 - 기본 Tool 이용하기
 - 클릭 이벤트
@@ -17,3 +17,8 @@
 - Parameter Setting
 - Signal Status
 - Jog Button Class 생성하기
+
+
+### Sequence
+- Flow Chart 구성하기
+- MFC Thread
