@@ -42,12 +42,12 @@ UINT CSequence::MyThread(LPVOID _mothod)
 
 2. 함수 소멸(Thread 소멸)
 ```cpp
- void MyClass::Ondestroy()
- {
-   CDialog::OnDestroy();
+void MyClass::Ondestroy()
+{
+  CDialog::OnDestroy();
    
-   if(pThread != NULL)
-     pThrad = NULL;
- }
+  if(pThread != NULL)
+   pThrad = NULL;
+}
 ```
 
