@@ -20,18 +20,21 @@
 ####   AfxBeginThread(MyThread, this);
 #### }
 
-1. 함수 구현(생성 함수)
-#### UINT CSequence::MyThread(LPVOID _mothod)
-#### {
-####   MyClass *p1 = (MyClass*)_mothod;
-####   while(1)    // THread_RUNNING 일 때
-####   {
-####     p1->Func();   // Func이라는 특정 함수에서 Thread 돌리기
-####     
-####     Sleep(1);
-####   }
-####   return 0;
-#### {
+1. 함수 구현(생성 함수) 
+
+'''cpp
+UINT CSequence::MyThread(LPVOID _mothod)
+{
+  MyClass *p1 = (MyClass*)_mothod;
+   while(1)    // THread_RUNNING 일 때
+   {
+     p1->Func();   // Func이라는 특정 함수에서 Thread 돌리기
+     
+     Sleep(1);
+   }
+   return 0;
+}
+'''
 
 2. 함수 소멸(Thread 소멸)
 
