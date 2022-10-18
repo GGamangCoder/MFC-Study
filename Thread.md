@@ -1,8 +1,7 @@
-## MFC Thread 사용
-### AfxbeginThread 에 등록
+### MFC Thread 사용
+AfxbeginThread 에 등록
 
-
-### [MyClass 에서 MyThread 사용]
+[MyClass 에서 MyThread 사용]
 * 헤더파일
 
 1. 포인터 선언
