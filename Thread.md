@@ -27,12 +27,12 @@ static UNIT (MyThread)(LPVOID _mothod );    // 반드시 static 선언
 
 1. 함수 구현(생성 함수) 
 ```
-UINT CSequence::MyThread(LPVOID _mothod)
+UINT MyClass::MyThread(LPVOID _mothod)
 {
-  MyClass *p1 = (MyClass*)_mothod;
+  MyClass *pThread = (MyClass*)_mothod;
    while(1)    // THread_RUNNING 일 때
    {
-     p1->Func();   // Func이라는 특정 함수에서 Thread 돌리기
+     pThread->Func();   // Func이라는 특정 함수에서 Thread 돌리기
      
      Sleep(1);
    }
@@ -47,7 +47,7 @@ void MyClass::Ondestroy()
   CDialog::OnDestroy();
    
   if(pThread != NULL)
-   pThrad = NULL;
+   pThread = NULL;
 }
 ```
 
