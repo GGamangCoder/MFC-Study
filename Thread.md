@@ -1,4 +1,4 @@
-### MFC Thread 사용
+## MFC Thread 사용
 AfxbeginThread 에 등록
 
 [MyClass 에서 MyThread 사용]
