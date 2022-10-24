@@ -1,0 +1,102 @@
+## 텍스트 파일로 LOG 남기기
+
+```cpp
+// 날짜별로 로그 폴더를 생성하고 시간 단위로 파일을 생성, 로그 남기기
+void WriteLog(CString LogText, CString LogPath, CString LogName)
+{
+  SYSTEMTIME SystemTime;
+  GetLocalTime(&SystemTime);
+  CString LogFolder;
+  
+  if(LogPath == _T(""))
+  {
+    Logfolder.Format(_T("%04d-%02d-%02d"), SystemTime.wYear, SystemTime.wMonth, SystemTime.wDay);
+    CreateFolder(Logfolder);
+  }
+  else
+  {
+    Logfolder.Format(_T("%s\\%04d-%02d-%02d"), LogPath, SystemTime.wYear, SystemTime.wMonth, SystemTime.wDay);
+    CreateFolder(Logfolder);
+  }
+
+
+  CString LogFullPath;
+  LogFullPath.Format(_T("%s\\%s %02d.txt"), Logfolder, LogName, SystemTime.wHour);
+
+
+  CFile file;
+  if(!file.Open(LogFullPath, CFile::modeWrite | CFile::modeNoTruncate))
+  {
+    if(!file.Open(LogFullPath, CFile::modeCreate | CFile::modeWrite))
+    {
+      return;
+    }
+  }
+
+  file.SeekToEnd();
+
+
+  char buff[1024];
+  ::ZeroMemory(buff, sizeof(buff));
+  ::WideCharToMultiByte(CP_ACP, 0, LogText, -1, buff, 1024, NULL, NULL);
+
+
+  CString szcTime;
+  szcTime.Format(_T("%02d:%02d:%03d - "), SystemTime.wMinute, SystemTime.wSecond, SystemTime.wMilliseconds);
+
+
+  char szTime[25];
+  ::ZeroMemory(szTime, sizeof(szTime));
+  ::WideCharToMultiByte(CP_ACP, 0, szcTime, -1, szTime, 1024, NULL, NULL);
+
+  file.Write(szTime, strlen(szTime));
+  strcat(buff, "\r\n");
+  file.Write(buff, strlen(buff));
+  file.Close();
+}
+
+
+// 일 단위로 로그 생성, 하루 한 개 파일을 생성하여 로그 남기기
+void WriteLog(CString LogText, CString LogPath, CString LogName)
+{
+  CreateFoler(LogPath);
+  SYSTEMTIME SystemTime;
+  GetLocalTime(&SystemTime);
+  
+  CString LogFullPath;
+  if(LogPath == _T(""))
+  {
+    LogFullPath.Format(_T("%s %04d-%02d-%02d.log"), LogName, SystemTime.wYear, SystemTime.wMonth, SystemTime.wDay);
+  }
+  else
+  {
+    LogFullPath.Format(_T("%s\\%s %04d-%02d-%02d.log"), LogPath, LogName, SystemTime.wYear, SystemTime.wMonth, SystemTime.wDay);
+  }
+  
+  CFile file;
+  if(!file.Open(LogFullPath, CFile::modeWrite | CFile::modeNoTruncate))
+  {
+    if(!file.Open(LogFullPath, CFile::modeCreate | CFile::modeWrite))
+      return;
+  }
+  file.SeekToEnd();
+  
+  char buff[1024];
+  ::ZeroMemory(buff, sizeof(buff));
+  ::WriteCharToMultiByte(CP_ACP, 0, LogText, -1, buff, 1024, NULL, NULL);
+  
+  CString szcTime;
+  szcTime.Format(_T("%02d:%02d:%02d - "),SystemTime.wHour, SystemTime.wMinute, SystemTime.wSecond);
+  
+  char szTime[25];
+  ::ZeroMemory(szTime, sizeof(szTime));
+  ::WideCharToMultiByte(CP_ACP, 0, szcTime, -1, szTime, 1024, NULL, NULL);
+
+  file.Write(szTime, strlen(szTime));
+  strcat(buff, "\r\n");
+  file.Write(buff, strlen(buff));
+  file.Close();
+  
+}
+
+```
