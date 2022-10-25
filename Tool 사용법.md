@@ -72,31 +72,39 @@ BOOL Sequence::OnInitDialog()
 
 * List Box
 1. AddString
+: 매개 변수 'lpszItem' 은 null 로 끝나는 문자열을 가리킨다.
+ 마지막 위치로부터 문자열을 추가한다.
 ```cpp
 	int AddString(LPCTSTR lpszItem);
 ```
- 매개 변수 'lpszItem' 은 null 로 끝나는 문자열을 가리킨다.
- 마지막 위치로부터 문자열을 추가한다.
+
 
 2. InsertString
-```cpp
-	int InsertString(int nIndex, LPCTSTR lpszItem);
-```
- 매개 변수 'nIndex' 은 문자열을 삽입할 위치의 인덱스를 지정. 매개 변수가 -1 이면 문자열이 목록의 끝에 추가된다.
+: 매개 변수 'nIndex' 은 문자열을 삽입할 위치의 인덱스를 지정. 매개 변수가 -1 이면 문자열이 목록의 끝에 추가된다.
  'lpszItem' 은 마찬가지이며 반환값은 문자열이 삽입된 위치의 0부터 시작되는 인덱스이다.
  (가장 위에서부터 0, 1, 2, .. 순이다.)
 
+```cpp
+	int InsertString(int nIndex, LPCTSTR lpszItem);
+```
+
 3. DeleteString
+: 매개 변수 'nIndex' 은 삭제할 문자열의 인덱스를 지정하여 해당 라인을 모두 삭제한다. 이 때 반환값은 남아있는 문자열의 행의 수이다.
 ```cpp
 	int DeleteString(UINT nIndex);
 ```
- 매개 변수 'nIndex' 은 삭제할 문자열의 인덱스를 지정하여 해당 라인을 모두 삭제한다. 이 때 반환값은 남아있는 문자열의 행의 수이다.
 
 4. GetText
+: 'nIndex' 행에서 'rString' 에 문자열을 반아온다.
 ```cpp
 	void GetText(int nIndex, CString& rString) const;
 ```
- 'nIndex' 행에서 'rString' 에 문자열을 반아온다.
+ 
+5. ResetContent
+```cpp
+
+```
+
 
 * Progress Control
 
