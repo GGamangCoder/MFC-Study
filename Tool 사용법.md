@@ -101,8 +101,9 @@ BOOL Sequence::OnInitDialog()
 ```
  
 5. ResetContent
+: 리스트에 대한 멤버 변수(mList)를 통해 
 ```cpp
-
+	mList.ResetContent();
 ```
 
 
