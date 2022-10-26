@@ -127,6 +127,35 @@ void GetText(int nIndex, CString& rString) const;
 mList.ResetContent();
 ```
 
++ 22.10.26 추가)
+6. Find()
+: CString 개체의 문자열 기준 좌측에서부터 문자 혹은 문자열을 검색(cf- ReverseFind() 는 우측에서부터 검색)
+
+함수 원형 및 설명
+```cpp
+int Find( LPCTSTR lpszSub ) const;
+// lpszSub : NULL로 종결되는 검색할 문자열
+// 반환값 : 검색된 위치, 실패 시 -1
+
+int Find( LPCTSTR lpszSub, int nStart ) const;
+// lpszSub : NULL로 종결되는 검색할 문자열
+// nStart : 검색을 시작할 위치. 생략 시 디폴트 값 0
+// 반환값 : 검색된 위치, 실패 시 -1
+```
+
+7. GetText()
+: 리스트 상자 내 원하는 행의 위치에서 CString 개체의 문자열을 받아온다.
+
+함수 원형 및 설명
+```cpp
+int GetText(int nIndex, LPTSTR lpszBuffer) const;
+// nIndex : 가져오려는 행의 인덱스
+// lpszBuffer : 문자열을 받아올 CString 개체의 변수
+
+ex)
+mList.GetText(nIndex, strTemp);
+```
+
 
 * Progress Control
 
