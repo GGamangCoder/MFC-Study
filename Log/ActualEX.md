@@ -90,13 +90,13 @@ void MyProject::Log(int CodeType, int LogType)
 		System = 1001,
 		Work,
 		Teaching,
-    ...
+		...
 	};
-  enum LogType
-  {
+	enum LogType
+	{
 		Home = 0,
 		AutoRun,
 		Stop,
-    ...
-  };
+		...
+	};
 ```
