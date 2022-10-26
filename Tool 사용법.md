@@ -160,8 +160,5 @@ mList.GetText(nIndex, strTemp);
 * Progress Control
 
 
-* Tab Control
-
-
 * Date Time Picker
-|-> 
+참고: https://github.com/HeokseokMJ/MFC-Study/blob/main/Log/2.Log%20Load.md
