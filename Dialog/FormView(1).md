@@ -1,6 +1,5 @@
 ## 다이얼로그 내에 다이얼로그 추가(FormView)
 
-### Tab Control과 유사한 FormView 이용하기
 
 참고: https://github.com/HeokseokMJ/MFC-Study/blob/main/Dialog/Dialog%20%EC%B6%94%EA%B0%80.md
 
