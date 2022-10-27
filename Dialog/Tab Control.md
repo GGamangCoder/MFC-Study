@@ -25,8 +25,8 @@ Tab Control 은 OnInitDialog 에서 초기화 작업을 해줘야 한다.
 	pDlg1->Create(IDD_DIALOG1, &m_Tab);
 	pDlg1->MoveWindow(0, 25, rect.Width(), rect.Height());
 	pDlg1->ShowWindow(SW_SHOW);
-  
-  ...
+	
+	...
 ```
 다이얼로그 2, 3도 마찬가지로 추가해주면 된다.
 
