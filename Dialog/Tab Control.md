@@ -3,7 +3,7 @@
 #### : 유사한 정보들을 제공하는 컨트롤들을 한 화면에 구성시켜준다. Page1, Page2, ... 과 같다고 생각하면 된다.
 
 메인 프로젝트(다이얼로그)에 Tab Control 을 추가하고 원하는 Tab 갯수만큼 대화상자(다이얼로그)를 만들어준다.
-새로 만든 대화상자 속성에서 'Style - Child, System Menu - False, Title Bar - False' 로 설정한다.
+새로 만든 대화상자 속성에서 **'Style - Child, System Menu - False, Title Bar - False'** 로 설정한다.
 이 때, Tab Control의 변수를 추가하여 **m_Tab** 이라 선언하자.
 
 참고: https://github.com/HeokseokMJ/MFC-Study/blob/main/Dialog/FormView(1).md 
