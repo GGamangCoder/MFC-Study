@@ -11,17 +11,19 @@ enum ThreadWork
   Thread_RUN = 0,
   Thread_Stop
 };
-enum Working
+enum STEP
 {
-  Step0 = 0,
-  Step1,
-  Step2,
-  Step3,
+  STEP0 = 0,
+  STEP1,
+  STEP2,
+  STEP3,
   ...
+  STEPN,
+  STEP_Count
 };
 
-ThreadWork  e_Thread;
-Working     e_WorkStep;
+ThreadWork	e_Thread;
+STEP		e_Step;
 
 void MyFunc();
 ```
@@ -30,13 +32,17 @@ void MyFunc();
 
 이제 cpp파일에서 쓰레드를 실행시키고 다시 시퀀스 함수(MyFunc())를 호출해준다.
 
++추가(22.11.02)
+enum 을 대표하는 변수와 내부 변수는 보통 대문자를 사용하며 위와 같이 STEP_(Name) 으로 명명한다.
+또한 각 스텝 혹은 변수들이 0부터 시작하므로 마지막 변수를 COUNT (갯수)로 사용하기도 한다.
+
 ```cpp
 UINT MyClass::MyThread(LPVOID _mothod)
 {
 	MyClass *pThread = (MyClass*)_mothod;
 	while (pThread->e_Thread == THREAD_RUN)
 	{
-    pThread->MyFunc();    // Sequence를 구성할 함수
+    		pThread->MyFunc();    // Sequence를 구성할 함수
   
 		Sleep(100);
 	}
@@ -50,17 +56,17 @@ UINT MyClass::MyThread(LPVOID _mothod)
 ```cpp
 void MyClass::MyFunc()
 {
-  switch (e_WorkStep)
+  switch (e_STEP)
   {
-  case step0:
+  case STEP0:
     // 준비 단계
     if(완료)  e_WorkStep = Step1;   // 다음 스탭 진행
     break;
-  case step1:
+  case STEP1:
     // 첫 번째 스탭 진행
     if(완료)  e_WorkStep = Step2;   // 다음 스탭 진행
     break;
-  case step2:
+  case STEP2:
     // 두 번째 스탭 진행
     if(완료)  e_WorkStep = Step3;   // 다음 스탭 진행
     break;
